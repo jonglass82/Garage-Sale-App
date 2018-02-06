@@ -1,0 +1,51 @@
+<% include partials/header %>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Garage Sales</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Login</a></li>
+                    <li><a href="/">Sign Up</a></li>
+                    <li><a href="/">Logout</a></li>
+                </ul>
+            
+        </div>
+    </div>
+    
+</nav>
+
+<div class="container">
+
+<header class="jumbotron">
+    <div class="container">
+    <h1>Garage Sales</h1>
+    <p>
+    <a class="btn btn-primary btn-large" href="/new">Post your garage sale HERE</a>
+    </p>
+    </div>
+</header>
+
+<div class="row" style="display:flex; flex-wrap: wrap;">
+  <% listings.forEach(function(listing){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="<%= listing.image%>">
+         <div class="caption">
+                 <h4><%= listing.address %></h4>
+                   <div class="caption">
+                 <h4><%= listing.town %></h4>
+        </div>
+        <p>
+            <a href="/<%= listing._id%>" class="btn btn-primary">More Info</a>
+        </p>
+        </div>
+        </div>
+        </div>
+        <% }); %>
+      </div>  
+      </div>
+
+<% include partials/footer %>
